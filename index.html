@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shatter Sound Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shatter Sound Generator</h1>
+        
+        <div class="preset-container" id="preset-container">
+            <button class="preset-button" data-preset="mild">Mild Shatter</button>
+            <button class="preset-button" data-preset="medium">Medium Shatter</button>
+            <button class="preset-button" data-preset="intense">Intense Shatter</button>
+            <button class="preset-button" data-preset="extreme">Extreme Shatter</button>
+            <button class="preset-button" data-preset="metallic">Metallic Shatter</button>
+            <!-- Custom presets will be added here dynamically -->
+        </div>
+        
+        <div class="custom-preset-container">
+            <input type="text" id="preset-name" placeholder="Enter preset name">
+            <button id="save-preset-button">Save Current Settings</button>
+        </div>
+        
+        <div class="control-panel">
+            <div class="control-group">
+                <h3>Noise Controls</h3>
+                <div class="control">
+                    <label for="volume">Volume</label>
+                    <div class="slider-container">
+                        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.2">
+                        <span class="value-display" id="volume-value">0.20</span>
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="noise-type">Noise Type</label>
+                    <select id="noise-type" class="full-width">
+                        <option value="white">White Noise</option>
+                        <option value="pink">Pink Noise</option>
+                        <option value="brown">Brown Noise</option>
+                        <option value="metallic">Metallic Shatter</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Distortion</h3>
+                <div class="control">
+                    <label for="distortion-amount">Amount</label>
+                    <div class="slider-container">
+                        <input type="range" id="distortion-amount" min="0" max="1000" step="1" value="400">
+                        <span class="value-display" id="distortion-amount-value">400</span>
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="distortion-oversample">Oversample</label>
+                    <select id="distortion-oversample">
+                        <option value="none">None</option>
+                        <option value="2x">2x</option>
+                        <option value="4x" selected>4x</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Filter</h3>
+                <div class="control">
+                    <label for="filter-type">Type</label>
+                    <select id="filter-type">
+                        <option value="lowpass">Low Pass</option>
+                        <option value="highpass">High Pass</option>
+                        <option value="bandpass" selected>Band Pass</option>
+                        <option value="notch">Notch</option>
+                        <option value="allpass">All Pass</option>
+                        <option value="peaking">Peaking</option>
+                    </select>
+                </div>
+                <div class="control">
+                    <label for="filter-frequency">Frequency</label>
+                    <div class="slider-container">
+                        <input type="range" id="filter-frequency" min="20" max="20000" step="1" value="2000">
+                        <span class="value-display" id="filter-frequency-value">2000</span>
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="filter-q">Resonance (Q)</label>
+                    <div class="slider-container">
+                        <input type="range" id="filter-q" min="0.1" max="20" step="0.1" value="5">
+                        <span class="value-display" id="filter-q-value">5.0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>Modulation</h3>
+                <div class="control">
+                    <label for="mod-speed">Speed</label>
+                    <div class="slider-container">
+                        <input type="range" id="mod-speed" min="0.1" max="20" step="0.1" value="5">
+                        <span class="value-display" id="mod-speed-value">5.0</span>
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="mod-depth">Depth</label>
+                    <div class="slider-container">
+                        <input type="range" id="mod-depth" min="0" max="1" step="0.01" value="0.5">
+                        <span class="value-display" id="mod-depth-value">0.50</span>
+                    </div>
+                </div>
+                <div class="control">
+                    <label for="mod-type">Type</label>
+                    <select id="mod-type">
+                        <option value="tremolo">Tremolo</option>
+                        <option value="filter" selected>Filter Sweep</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button id="play-button">Play Sound</button>
+            <button id="stop-button" class="stop" disabled>Stop Sound</button>
+        </div>
+        
+        <div class="visualizer-container">
+            <canvas id="visualizer"></canvas>
+        </div>
+    </div>
+    
+    <footer>
+        Created with Web Audio API
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
