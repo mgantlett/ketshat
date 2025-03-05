@@ -1,6 +1,6 @@
-# Ketamine-like Shatter Sound Generator
+# Shatter Sound Generator
 
-An interactive web-based sound generator that creates ketamine-like shatter sound effects using the Web Audio API.
+An interactive web-based sound generator that creates unique shatter sound effects using the Web Audio API.
 
 ## Features
 
